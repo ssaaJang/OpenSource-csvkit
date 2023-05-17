@@ -1,0 +1,4 @@
+* csvkit 내용 참고
+https://sooho-kim.tistory.com/170
+
+https://whereisend.tistory.com/347
