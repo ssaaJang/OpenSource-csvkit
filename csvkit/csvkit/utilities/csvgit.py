@@ -1,7 +1,5 @@
 import csv
 from github import Github
-
-from csvkit import CSVKitReader
 from csvkit.cli import CSVKitUtility
 
 class CSVGit(CSVKitUtility):
@@ -18,7 +16,7 @@ class CSVGit(CSVKitUtility):
             '-to','--token', dest='token', help = 'Input your Github Token'
         )
 
-    def mian(self):
+    def main(self):
         inputfile = self.args.inputfile
         repository = self.args.repo
         token = self.args.token
@@ -26,19 +24,19 @@ class CSVGit(CSVKitUtility):
         gg = Github(token)
         repo = gg.get_repo(repository)
 
-        with open(inputfile,'rb') as f:
+        with open(inputfile,'r') as f:
             ff = f.read()
         repo.upload_file(inputfile, 'Upload CSV files to Github', ff , branch ='main')
 
         print(f'"{inputfile}" uploaded to GitHub')
 
-    def launch_new_instance():
-        utility = CSVGit()
-        utility.run()
+def launch_new_instance():
+    utility = CSVGit()
+    utility.run()
 
 
-    if __name__ == '__main__':
-        launch_new_instance()
+if __name__ == '__main__':
+    launch_new_instance()
 
 
 

@@ -44,13 +44,13 @@ class CSVGPT(CSVKitUtility):
             GPT(user_content)
         print('answer : ', messages)
     
-    def launch_new_instance():
-        utility = CSVGPT()
-        utility.run()
+def launch_new_instance():
+    utility = CSVGPT()
+    utility.run()
 
 
-    if __name__ == '__main__':
-        launch_new_instance()
+if __name__ == '__main__':
+    launch_new_instance()
 
 
 
