@@ -1,0 +1,43 @@
+import csv
+import matplotlib.pyplot as plt
+import pandas as pd
+from csvkit.cli import CSVKitUtility
+import matplotlib.font_manager as fm
+
+class CSVVisual(CSVKitUtility):
+    description = "Visualization"
+
+    def add_arguments(self):
+        self.argparser.add_argument('inputfile', help='Input CSV file path')
+        self.argparser.add_argument('--x_axis', help='X-axis column name')
+        self.argparser.add_argument('--y_axis', help='Y-axis column name')
+
+    def main(self):
+        inputfile = self.args.inputfile
+        x_axis = self.args.x_axis
+        y_axis = self.args.y_axis
+
+        df = pd.read_csv(inputfile)
+
+        ColName = [x_axis, y_axis]
+        Col_data = df[ColName]
+
+        x_data = Col_data[x_axis]
+        y_data = Col_data[y_axis]
+
+        # 폰트 경로 설정 추가(각자 시스템 서체에 맞게 설정)
+        font_path = '/System/Library/Fonts/AppleSDGothicNeo.ttc'
+        plt.rcParams['font.family'] = fm.FontProperties(fname=font_path).get_name()
+
+        plt.scatter(x_data, y_data)
+        plt.title('Scatter Plot')
+        plt.xlabel(x_axis)
+        plt.ylabel(y_axis)
+        plt.show()
+
+def launch_new_instance():
+    utility = CSVVisual()
+    utility.run()
+
+if __name__ == '__main__':
+    launch_new_instance()
