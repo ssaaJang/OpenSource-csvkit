@@ -25,7 +25,7 @@ class CSVVisual(CSVKitUtility):
         x_data = Col_data[x_axis]
         y_data = Col_data[y_axis]
 
-        # 폰트 경로 설정 추가(각자 시스템 서체에 맞게 설정)
+        # 폰트 경로 설정 추가(각자 시스템 서체에 맞게 설정!!)
         font_path = '/System/Library/Fonts/AppleSDGothicNeo.ttc'
         plt.rcParams['font.family'] = fm.FontProperties(fname=font_path).get_name()
 
