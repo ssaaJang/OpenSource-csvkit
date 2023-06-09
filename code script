@@ -1,0 +1,5 @@
+#코드 실행 스크립트 (csvkit명령어X)
+python visualization.py data.csv --x_axis column_x --y_axis column_y
+
+#csv파일경로에 공백 포함된 경우(인코딩 에러 발생 시 코드에 추가로 작성해서 인코딩 값 지정하기)
+python main.py "제주 데이터.csv" --x_axis column_x --y_axis column_y 
