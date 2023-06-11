@@ -4,7 +4,7 @@ import pandas as pd
 from csvkit.cli import CSVKitUtility
 import matplotlib.font_manager as fm
 
-class CSVVisual(CSVKitUtility):
+class CSVSatterplot(CSVKitUtility):
     description = "Visualization"
 
     def add_arguments(self):
@@ -36,7 +36,7 @@ class CSVVisual(CSVKitUtility):
         plt.show()
 
 def launch_new_instance():
-    utility = CSVVisual()
+    utility = CSVSatterplot()
     utility.run()
 
 if __name__ == '__main__':
