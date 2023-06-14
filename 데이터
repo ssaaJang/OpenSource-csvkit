@@ -16,3 +16,9 @@ https://www.asiae.co.kr/article/2022012609255169395
 <에어코리아 대기환경>
 https://www.data.go.kr/data/15073861/openapi.do
 https://www.airkorea.or.kr/web/last_amb_hour_data?pMENU_NO=123
+
+
+<제주 미세먼지 데이터>
+https://www.data.go.kr/data/3082721/openapi.do
+https://www.airkorea.or.kr/web/pmRelay?itemCode=11008&pMENU_NO=109&district=8&searchDate=20230101
+https://air.jeju.go.kr/contents/data/fix.htm?type=days
