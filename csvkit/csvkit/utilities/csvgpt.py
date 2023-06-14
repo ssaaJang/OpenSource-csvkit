@@ -3,9 +3,9 @@ import requests
 import openai
 from csvkit.cli import CSVKitUtility
 
-openai.api_key = "insert OpenAPI Key"
-
+openai.api_key = "insert youre api key"
 messages = []
+
 def GPT(input_text):
         user_content = input_text
         messages.append({"role": "user", "content": f"{user_content}"})
@@ -21,13 +21,13 @@ class CSVGPT(CSVKitUtility):
     
     def add_arguments(self):
         self.argparser.add_argument(
-            'inputfile' , dest='inputfile',help = 'Input CSV File'
+            'inputfile' ,help = 'Input CSV File'
         )
 
     def main(self):
         inputfile = self.args.inputfile
 
-        with open(inputfile,'r') as f:
+        with open(inputfile,'r', encoding='utf-8-sig') as f:
             r = csv.reader(f)
             lines = [next(r) for _ in range(6)]
         for line in lines:
@@ -42,7 +42,7 @@ class CSVGPT(CSVKitUtility):
             if user_content == 'q':
                 break
             GPT(user_content)
-        print('answer : ', messages)
+            print('answer : ', messages)
     
 def launch_new_instance():
     utility = CSVGPT()

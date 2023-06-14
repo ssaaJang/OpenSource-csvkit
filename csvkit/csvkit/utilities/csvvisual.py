@@ -2,20 +2,24 @@ import csv
 import matplotlib.pyplot as plt
 import pandas as pd
 from csvkit.cli import CSVKitUtility
+import matplotlib.font_manager as fm
+font_path = 'C:/Windows/Fonts/malgun.ttf'
+plt.rcParams['font.family'] = fm.FontProperties(fname=font_path).get_name()
+
 
 class CSVVisual(CSVKitUtility):
     description = "Visualization"
     def add_arguments(self):
         self.argparser.add_argument(
-            'inputfile', dest='inputfile',help="Input CSV file"
+            'inputfile',help="Input CSV file"
         )
 
         self.argparser.add_argument(
-            '--x', dest='x_axis',help="X축 column name"
+            '--x_axis' ,help="X축 column name"
         )
 
         self.argparser.add_argument(
-            '--y', dest='y_axis',help="y축 column name"
+            '--y_axis',help="y축 column name"
         )
 
     def main(self):
@@ -32,11 +36,10 @@ class CSVVisual(CSVKitUtility):
         x_data = Col_data[x_axis]
         y_data = Col_data[y_axis]
 
-        plt.figure()
-        df[ColName].plot()
+        plt.plot(x_data,y_data)
         plt.title('Visualization')
-        plt.xlabel(ColName[0])
-        plt.ylabel(ColName[1])
+        plt.xlabel(x_axis)
+        plt.ylabel(y_axis)
         plt.show()
     
 def launch_new_instance():
